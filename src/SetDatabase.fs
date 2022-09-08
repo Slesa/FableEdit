@@ -49,7 +49,7 @@ let render (state: State) (dispatch: Msg -> unit) =
                     prop.value value
                     prop.text text ] ]
         prop.valueOrDefault state.Type
-        prop.onChange (int >> SetType >> dispatch)
+        prop.onChange (SetType >> dispatch)
     ]
 
   Bulma.field.div [

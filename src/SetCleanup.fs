@@ -56,24 +56,24 @@ let render (state: State) (dispatch: Msg -> unit) =
             Bulma.label "h"
             Bulma.input.number [
               prop.valueOrDefault (fst state.StartAt)
-              prop.onChange (int >> SetStartHour >> dispatch)
+              prop.onChange (SetStartHour >> dispatch)
             ]
           ]
           Bulma.field.div [
             Bulma.label "m"
             Bulma.input.number [
               prop.valueOrDefault (snd state.StartAt)
-              prop.onChange (int >> SetStartMin >> dispatch)
+              prop.onChange (SetStartMin >> dispatch)
             ]
           ]
-          (*Bulma.control.div [
+          Bulma.control.div [
             DateTimePicker.dateTimePicker [
               //timePicker.clearLabel "Clear"
               //timePicker.onTimeSelected (fun (v:System.TimeSpan option) -> () ) // SetStartAt (v.Value.Hours, v.Value.Minutes) >> dispatch )
               //prop.valueOrDefault state.StartAt
               //prop.onChange (SetStartAt >> dispatch)
             ]
-          ]*)
+          ]
           Bulma.help "The time the cleanup task starts"
         ]
       ]
@@ -83,7 +83,7 @@ let render (state: State) (dispatch: Msg -> unit) =
           Bulma.control.div [
             Bulma.input.number [
               prop.valueOrDefault state.ArchiveDays
-              prop.onChange (int >> SetArchiveDays >> dispatch)
+              prop.onChange (SetArchiveDays >> dispatch)
             ]
           ]
           Bulma.help "All database entries older than that will be set to archived, 0 turns off"
@@ -95,7 +95,7 @@ let render (state: State) (dispatch: Msg -> unit) =
           Bulma.control.div [
             Bulma.input.number [
               prop.valueOrDefault state.XmlDays
-              prop.onChange (int >> SetXmlDays >> dispatch)
+              prop.onChange (SetXmlDays >> dispatch)
             ]
           ]
           Bulma.help "All job files older than that will be removed, 0 turns off"
@@ -107,7 +107,7 @@ let render (state: State) (dispatch: Msg -> unit) =
           Bulma.control.div [
             Bulma.input.number [
               prop.valueOrDefault state.DbDays
-              prop.onChange (int >> SetDbDays >> dispatch)
+              prop.onChange (SetDbDays >> dispatch)
             ]
           ]
           Bulma.help "All database entries older than that will be removed, 0 turns off"

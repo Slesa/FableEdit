@@ -64,7 +64,7 @@ let render (state: State) (dispatch: Msg -> unit) =
           Bulma.control.div [
             Bulma.input.number [
               prop.valueOrDefault state.Port
-              prop.onChange (int >> SetPort >> dispatch)
+              prop.onChange (SetPort >> dispatch)
             ]
           ]
           //Bulma.help "Orders for which monitors should be ignored?"
